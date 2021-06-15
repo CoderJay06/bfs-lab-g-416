@@ -13,25 +13,26 @@ function bfs(startingNode, vertices, edges){
   return discoverOrder
 }
 
-// function findAdjacentNodes(firstNode, vertices, edges) {
+function findAdjacentNodes(firstNode, vertices, edges) {
 
-//   // locate adjacent nodes from vertices 
-//   const flattenEdges = [].concat.apply([], edges);
-//   console.log(flattenEdges)
-//   const firstAdjacent = 
-//     vertices.find(v => v.name == flattenEdges[flattenEdges.indexOf(firstNode) - 2] );
-//   const secondAdjacent = 
-//     vertices.find(v => v.name == flattenEdges[flattenEdges.indexOf(firstNode) + 2] );
+  // locate adjacent nodes from vertices 
+  const flattenEdges = [].concat.apply([], edges);
+  console.log(flattenEdges)
+  const firstAdjacent = 
+    vertices.find(v => v.name == flattenEdges[flattenEdges.indexOf(firstNode) - 2] );
+  const secondAdjacent = 
+    vertices.find(v => v.name == flattenEdges[flattenEdges.indexOf(firstNode) + 2] );
 
-//   const adjacentNodes = [firstAdjacent, secondAdjacent];
+  const adjacentNodes = [firstAdjacent, secondAdjacent];
 
-// 	// set explored vertice distance to 0
-// 	console.log('v0 ', vertices[0])
-// 	if (vertices[0].distance === null)
-// 	  vertices[0].distance = 0;
+	// set explored vertice distance to 0
+	console.log('v0 ', vertices[0])
+	if (vertices[0].distance === null)
+	  vertices[0].distance = 0;
 	
-//   return adjacentNodes.map(v => v.distance !== 0);
-// }
+  return adjacentNodes.map(v => v.distance !== 0);
+}
+
 // need to write a test for non-discovered nodes
 function findAdjacentNodes(nodeName,  vertices, edges){
   return edges.filter(function(edge){
