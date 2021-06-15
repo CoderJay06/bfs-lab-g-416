@@ -36,19 +36,19 @@ function findAdjacentNodes(firstNode, vertices, edges) {
 }
 
 // need to write a test for non-discovered nodes
-function findAdjacentNodes(nodeName,  vertices, edges){
-  return edges.filter(function(edge){
-    return edge.includes(nodeName)
-  }).map(function(edge){
-    return edge.filter(function(node){
-      return (node != nodeName)
-    })[0]
-  }).map(function(name){
-    return findNode(name, vertices)
-  }).filter(function(node){
-    return node.distance == null;
-  })
-}
+// function findAdjacentNodes(nodeName,  vertices, edges){
+//   return edges.filter(function(edge){
+//     return edge.includes(nodeName)
+//   }).map(function(edge){
+//     return edge.filter(function(node){
+//       return (node != nodeName)
+//     })[0]
+//   }).map(function(name){
+//     return findNode(name, vertices)
+//   }).filter(function(node){
+//     return node.distance == null;
+//   })
+// }
 
 function markDistanceAndPredecessor(predecessor, adjacentNodes) {
 
