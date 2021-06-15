@@ -13,42 +13,40 @@ function bfs(startingNode, vertices, edges){
   return discoverOrder
 }
 
-function findAdjacentNodes(firstNode, vertices, edges) {
+// function findAdjacentNodes(firstNode, vertices, edges) {
 
-  // locate adjacent nodes from vertices 
-  const flattenEdges = [].concat.apply([], edges);
-  console.log(flattenEdges)
-  let adjacentNodes;
-  if (flattenEdges.includes(firstNode)) {
-    let firstAdjacent = 
-      vertices.find(v => v.name == flattenEdges[flattenEdges.indexOf(firstNode) - 2] );
-    let secondAdjacent = 
-      vertices.find(v => v.name == flattenEdges[flattenEdges.indexOf(firstNode) + 2] );
-    adjacentNodes = [firstAdjacent, secondAdjacent];
-  }
+//   // locate adjacent nodes from vertices 
+//   const flattenEdges = [].concat.apply([], edges);
+//   console.log(flattenEdges)
+//   const firstAdjacent = 
+//     vertices.find(v => v.name == flattenEdges[flattenEdges.indexOf(firstNode) - 2] );
+//   const secondAdjacent = 
+//     vertices.find(v => v.name == flattenEdges[flattenEdges.indexOf(firstNode) + 2] );
 
-	// set explored vertice distance to 0
-	console.log('v0 ', vertices[0])
-	if (vertices[0].distance === null)
-	  vertices[0].distance = 0;
+//   const adjacentNodes = [firstAdjacent, secondAdjacent];
+
+// 	// set explored vertice distance to 0
+// 	console.log('v0 ', vertices[0])
+// 	if (vertices[0].distance === null)
+// 	  vertices[0].distance = 0;
 	
-  return adjacentNodes.map(v => v.distance !== 0);
-}
+//   return adjacentNodes.map(v => v.distance !== 0);
+// }
 
 // need to write a test for non-discovered nodes
-// function findAdjacentNodes(nodeName,  vertices, edges){
-//   return edges.filter(function(edge){
-//     return edge.includes(nodeName)
-//   }).map(function(edge){
-//     return edge.filter(function(node){
-//       return (node != nodeName)
-//     })[0]
-//   }).map(function(name){
-//     return findNode(name, vertices)
-//   }).filter(function(node){
-//     return node.distance == null;
-//   })
-// }
+function findAdjacentNodes(nodeName,  vertices, edges){
+  return edges.filter(function(edge){
+    return edge.includes(nodeName)
+  }).map(function(edge){
+    return edge.filter(function(node){
+      return (node != nodeName)
+    })[0]
+  }).map(function(name){
+    return findNode(name, vertices)
+  }).filter(function(node){
+    return node.distance == null;
+  })
+}
 
 function markDistanceAndPredecessor(predecessor, adjacentNodes) {
 
