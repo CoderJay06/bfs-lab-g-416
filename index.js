@@ -18,7 +18,7 @@ function findAdjacentNodes(firstNode, vertices, edges) {
   // locate adjacent nodes from vertices 
   const flattenEdges = [].concat.apply([], edges);
   console.log(flattenEdges)
-  const adjacentNodes;
+  let adjacentNodes;
   if (flattenEdges.includes(firstNode)) {
     let firstAdjacent = 
       vertices.find(v => v.name == flattenEdges[flattenEdges.indexOf(firstNode) - 2] );
